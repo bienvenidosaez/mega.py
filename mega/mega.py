@@ -233,8 +233,9 @@ class Mega(object):
         """
         files = self.get_files()
         for file in files.items():
-            if file[1]['a'] and file[1]['a']['n'] == filename:
-                return file
+            if type(file[1]['a']) is dict:
+                if file[1]['a'] and file[1]['a']['n'] and file[1]['a']['n'] == filename:
+                    return file
 
     def get_files(self):
         """
